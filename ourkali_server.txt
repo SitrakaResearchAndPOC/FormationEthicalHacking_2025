@@ -1,0 +1,21 @@
+ssh root@173.255.197.114
+password:Lamp$$205909$$@@voiture_maison_toillette
+
+
+ssh root@69.164.207.33
+password:Lamp$$205909$$@@voiture_maison_toillette
+
+
+ssh root@69.164.207.215
+password:Lamp$$205909$$@@voiture_maison_toillette
+
+
+ssh root@69.164.207.14
+password:Lamp$$205909$$@@voiture_maison_toillette
+
+
+ssh root@69.164.207.98
+password:Lamp$$205909$$@@voiture_maison_toillette
+
+
+
