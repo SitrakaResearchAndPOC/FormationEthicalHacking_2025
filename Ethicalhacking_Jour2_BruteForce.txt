@@ -39,7 +39,7 @@ nano login.php
         // Génération du hash SHA-256
         $hashed_password = hash('sha256', $password);
 
-        echo "<p>Hash généré pour le mot de passe saisi : <strong>$hashed_password</strong></p>";
+        // echo "<p>Hash généré pour le mot de passe saisi : <strong>$hashed_password</strong></p>";
 
         // Mot de passe haché attendu pour "123"
         $expected_hashed_password = hash('sha256', '123');
@@ -65,12 +65,12 @@ ssh-keygen -R 45.79.197.235
 ssh root@45.79.197.235
 Lamp$$205909$$@@voiture_maison_toillette
 
-GET : wfuzz -c -z file,passwords.txt  --hc 200 "http://45.79.211.212/login.php?login=admin&password=FUZZ&quot;
-wfuzz -c -z file,passwords.txt  --hh 607 "http://45.79.211.212/login.php?login=admin&password=FUZZ&quot;
-wfuzz -c -z file,passwords.txt  --hs "Error" "http://45.79.211.212/login.php?login=admin&password=FUZZ&quot;
+GET : wfuzz -c -z file,passwords.txt  --hc 200 "http://45.79.211.212/login.php?login=admin&password=FUZZ"
+wfuzz -c -z file,passwords.txt  --hh 607 "http://45.79.211.212/login.php?login=admin&password=FUZZ"
+wfuzz -c -z file,passwords.txt  --hs "Error" "http://45.79.211.212/login.php?login=admin&password=FUZZ"
 
 avec login et password : 
-wfuzz -c -z file,logins.txt -z file,passwords.txt --hc 200 "http://45.79.211.212/login.php?login=FUZZ&password=FUZ2Z"
+wfuzz -c -z file,logins.txt -z file,passwords.txt --hc 200 "http://45.79.211.212/login.php?login=FUZZ&password=FUZZ"
 In this command:
 
 -c enables color output.
@@ -83,7 +83,7 @@ Make sure you have the logins.txt file containing potential usernames and the pa
 If you want to fuzz both parameters but only want to see the results for successful logins, you can remove the --hc 200 option:
 
 
-wfuzz -c -z file,logins.txt -z file,passwords.txt "http://45.79.211.212/login.php?login=FUZZ&password=FUZ2Z"
+wfuzz -c -z file,logins.txt -z file,passwords.txt "http://45.79.211.212/login.php?login=FUZZ&password=FUZZ"
 
 This will show you all responses, including successful ones. Be cautious when running fuzzing attacks, as they can generate a large amount of traffic and may be detected by security systems. Always ensure you have permission to test the target system.
 
