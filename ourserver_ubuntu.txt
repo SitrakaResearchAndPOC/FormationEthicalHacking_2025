@@ -4,7 +4,8 @@ password:Lamp$$205909$$@@voiture_maison_toillette
 ssh root@45.33.96.224
 password:Lamp$$205909$$@@voiture_maison_toillette
 
-ssh root@45.33.29.48
+UBUNTU 20.04 For Crypto_attack
+ssh root@45.33.100.32
 password:Lamp$$205909$$@@voiture_maison_toillette
 
 
