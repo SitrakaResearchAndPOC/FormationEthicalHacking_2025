@@ -148,3 +148,9 @@ set rport 21
 ```
 exploit
 ```
+```
+whoami
+```
+```
+dir
+```
