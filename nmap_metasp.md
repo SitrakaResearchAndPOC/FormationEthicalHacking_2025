@@ -112,7 +112,7 @@ retest port
 ```
 nmap -sS -p 6200 192.168.211.129
 ```
-Opening backdoor
+Opening backdoor in another terminal (ctrl+shift+T)
 ```
 telnet  192.168.211.129 6200
 ```
