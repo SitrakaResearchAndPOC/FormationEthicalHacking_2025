@@ -1,20 +1,16 @@
-ssh root@173.255.197.114
+ssh root@173.230.129.24
+password:Lamp$$205909$$@@voiture_maison_toillette
+
+server2 : ubuntu22.04
+ssh root@172.233.187.88
 password:Lamp$$205909$$@@voiture_maison_toillette
 
 
-ssh root@69.164.207.33
+ssh root@172.233.136.187
 password:Lamp$$205909$$@@voiture_maison_toillette
 
 
-ssh root@69.164.207.215
-password:Lamp$$205909$$@@voiture_maison_toillette
-
-
-ssh root@69.164.207.14
-password:Lamp$$205909$$@@voiture_maison_toillette
-
-
-ssh root@69.164.207.98
+ssh root@50.116.28.83
 password:Lamp$$205909$$@@voiture_maison_toillette
 
 
