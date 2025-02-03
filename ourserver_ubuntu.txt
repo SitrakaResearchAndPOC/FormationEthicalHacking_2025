@@ -1,13 +1,14 @@
-ssh root@74.207.228.190
+ssh root@173.230.129.24
 password:Lamp$$205909$$@@voiture_maison_toillette
 
-ssh root@45.33.96.224
-password:Lamp$$205909$$@@voiture_maison_toillette
-
-UBUNTU 20.04 For Crypto_attack
-ssh root@45.33.100.32
+server2 : ubuntu22.04
+ssh root@172.233.187.88
 password:Lamp$$205909$$@@voiture_maison_toillette
 
 
-ssh root@172.235.49.89 
+ssh root@172.233.136.187
+password:Lamp$$205909$$@@voiture_maison_toillette
+
+
+ssh root@50.116.28.83
 password:Lamp$$205909$$@@voiture_maison_toillette
